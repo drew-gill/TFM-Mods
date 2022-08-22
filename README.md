@@ -20,8 +20,15 @@ Edit Binaries with dnSpy (open Assembly-CSharp.dll, replace the one in gamedata 
     - Cards for a game determined in TM_Game.CreateGameData()
 
 - Card cost modifier
-- Expansion == "Extension/GameExtension"
 
+- Expansion == "Extension/GameExtension"
+    - Activate certain map by going to OnlineGameParameters.SanitizeParametersForHellas()
+        - Set this.useCorporationCards[...] = 1
+        - this.useActionCards[hellas] = 1
+        - this.BoardType = new EBoardType?(EBoardType.Hellas/EBoardType.Elysium/EBoardType.Tharsis)
+    - Activate prelude by changing properties in OnlineGameParameters.SanitizeParametersForPrelude()
+        - Similar to above, set values from 0->1
+    
 
 - Productions and Resources
     - Production Data managed by TM_PlayerProductionResourceData
